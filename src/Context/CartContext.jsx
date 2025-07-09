@@ -29,7 +29,7 @@ const CartContextProvider = ({ children }) => {
 
  const payOnlineAPI = ({ cartId, shippingAddress }) =>
   axiosInstance.post(
-    `/orders/checkout-session/${cartId}?url=fresh-cart-theta-nine.vercel.app`,
+    `/orders/checkout-session/${cartId}?url=fresh-cart-ecommerce-app.vercel.app`,
     { shippingAddress }
   );
 
