@@ -27,11 +27,11 @@ const CartContextProvider = ({ children }) => {
 
   const updateProductCountAPI = ({ productId, count }) => axiosInstance.put(`/cart/${productId}`, { count });
 
-  const payOnlineAPI = ({ cartId, shippingAddress }) =>
-    axiosInstance.post(
-      `/orders/checkout-session/${cartId}?url=${import.meta.env.VITE_STRIPE_REDIRECT_URL}`,
-      { shippingAddress }
-    );
+ const payOnlineAPI = ({ cartId, shippingAddress }) =>
+  axiosInstance.post(
+    `/orders/checkout-session/${cartId}?url=${import.meta.env.VITE_STRIPE_REDIRECT_URL}`,
+    { shippingAddress }
+  );
 
   const payCashAPI = ({ cartId, shippingAddress }) =>
     axiosInstance.post(`/orders/${cartId}`, { shippingAddress });
