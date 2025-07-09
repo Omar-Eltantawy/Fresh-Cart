@@ -4,8 +4,11 @@ import { useFormik } from 'formik'
 import * as yup from 'yup'
 import { CartContext } from '../../Context/CartContext'
 import { useNavigate } from 'react-router-dom'
+import toast from 'react-hot-toast'
 const Checkout = () => {
-  const {payOnline,data:cartData,isPayingOnlineLoading ,payCash,isPayingCashLoading}= useContext(CartContext);
+  // const {payOnline,data:cartData,isPayingOnlineLoading ,payCash,isPayingCashLoading}= useContext(CartContext);
+  const {payOnline,cartId,isPayingOnlineLoading,payCash,isPayingCashLoading} = useContext(CartContext);
+
   const [cashFlag,setCashFlag]= useState(false);
   const navigate = useNavigate();
   let CheckoutSchema =yup.object().shape({
@@ -13,15 +16,17 @@ const Checkout = () => {
     phone:yup.string().matches(/^01[0125][0-9]{8}$/,'phone must be egyptian phone number').required("Phone is required"),
     city: yup.string().required("Must Be Required")
   })
-  const onlineOrder =async (values)=>{
-    payOnline(cartData.cartId,values)
-  }
-  const cashOreder=(values)=>{
-      payCash(cartData.cartId,values)
-    .then(()=>{
-      navigate("/allorders");
-    })
-  }
+  const onlineOrder = async (values) => {
+  if (!cartId) return toast.error("Cart ID not found");
+  payOnline(cartId, values);
+};
+
+const cashOreder = (values) => {
+  if (!cartId) return toast.error("Cart ID not found");
+  payCash(cartId, values).then(() => {
+    navigate("/allorders");
+  });
+};
   const paymentOrder=(values)=>{
     let shippingAddress=values
     if(cashFlag){

@@ -14,7 +14,6 @@ const OrdersList = ({ orders }) => {
           <div className="flex flex-col md:flex-row md:justify-between mb-4">
             <div>
               <h3 className="text-lg font-semibold text-gray-800">Order #{idx + 1}</h3>
-              <p className="text-sm text-gray-500">Order ID: {order._id}</p>
             </div>
             <div className="text-sm text-gray-600">
               <p>Paid: <span className={order.isPaid ? "text-green-600 font-medium" : "text-red-600"}>{order.isPaid ? "Yes" : "No"}</span></p>

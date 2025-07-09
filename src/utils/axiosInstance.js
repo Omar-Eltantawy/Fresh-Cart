@@ -4,7 +4,7 @@ import axios from "axios";
 const token = localStorage.getItem("token");
 
 export const axiosInstance = axios.create({
-    baseURL:"https://ecommerce.routemisr.com/api/v1",
+    baseURL:import.meta.env.VITE_BASE_API_URL,
     headers:{
         token: token || ""
     }
