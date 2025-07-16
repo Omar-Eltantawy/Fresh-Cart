@@ -29,7 +29,7 @@ const CartContextProvider = ({ children }) => {
 
  const payOnlineAPI = ({ cartId, shippingAddress }) =>
   axiosInstance.post(
-    `/orders/checkout-session/${cartId}?url=https://fresh-cart-myEcommerce-v11-app.vercel.app`,
+    `/orders/checkout-session/${cartId}?url=https://github.com/Omar-Eltantawy/Fresh-Cart`,
     { shippingAddress }
   );
 
