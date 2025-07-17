@@ -23,6 +23,7 @@ const Login = () => {
       onSuccess:(data)=>{
         setToken(data.token);
         localStorage.setItem("token", data.token);
+        window.location.reload();
         verifyToken(data.token);
         navigate("/");
       },
