@@ -20,10 +20,10 @@ const Login = () => {
   })
   const handleLogin =(values)=>{
     login(values,{
-      onSuccess:(data)=>{
+      onSuccess:async(data)=>{
         setToken(data.token);
         localStorage.setItem("token", data.token);
-        verifyToken(data.token);
+        await verifyToken(data.token);
         navigate("/");
         window.location.reload();
       },

@@ -29,7 +29,7 @@ const CartContextProvider = ({ children }) => {
 
  const payOnlineAPI = ({ cartId, shippingAddress }) =>
   axiosInstance.post(
-    `/orders/checkout-session/${cartId}?url=https://omar-eltantawy.github.io/Fresh-Cart#`,
+    `/orders/checkout-session/${cartId}?url=https://omar-eltantawy.github.io/Fresh-Cart`,
     { shippingAddress }
   );
 
