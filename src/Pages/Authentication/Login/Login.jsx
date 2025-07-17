@@ -23,9 +23,9 @@ const Login = () => {
       onSuccess:(data)=>{
         setToken(data.token);
         localStorage.setItem("token", data.token);
-        window.location.reload();
         verifyToken(data.token);
         navigate("/");
+        window.location.reload();
       },
       onError: (error) => {
         console.log(error?.response?.data?.message);
