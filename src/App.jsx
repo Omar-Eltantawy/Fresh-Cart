@@ -1,4 +1,4 @@
-import { createHashRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
 import Layout from './Components/Layout/Layout'
 import Home from './Pages/Home/Home'
@@ -26,7 +26,7 @@ import Wishlist from './Pages/Wishlist/Wishlist'
 import WishlistContextProvider from './Context/WishlistContext'
 
 function App() {
-  let router=createHashRouter([
+  let router=createBrowserRouter([
     {path:"",element:<Layout />,children:[
       {path:"/",element:<ProtectedRoute><Home/></ProtectedRoute>},
       {path:"categories",element:<ProtectedRoute><Categories/></ProtectedRoute> },
